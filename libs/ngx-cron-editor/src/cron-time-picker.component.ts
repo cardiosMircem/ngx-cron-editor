@@ -1,7 +1,6 @@
 ﻿import { Component, Input } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 
-
 export interface TimePickerModel {
   days: number;
   hours: number;
@@ -10,7 +9,7 @@ export interface TimePickerModel {
 }
 
 function* range(start: number, end: number) {
-  for (let i = start; i <= end; i++) {
+  for (let i = start; i <= end; i += 1) {
     yield i;
   }
 }
@@ -22,20 +21,24 @@ function* range(start: number, end: number) {
 })
 export class TimePickerComponent {
   @Input() public disabled;
+
   @Input() public use24HourTime = true;
+
   @Input() public hideHours = false;
+
   @Input() public hideMinutes = false;
+
   @Input() public hideSeconds = true;
 
-  public minutes =  [...range(0, 59) ];
-  public seconds = [...range(0, 59) ];
+  public minutes = [...range(0, 59)];
+
+  public seconds = [...range(0, 59)];
+
   public hourTypes = ['AM', 'PM'];
 
   get hours(): number[] {
-    return this.use24HourTime ? [... range(0, 23)] : [... range(0, 12)];
+    return this.use24HourTime ? [...range(0, 23)] : [...range(0, 12)];
   }
 
-  constructor(public parent: ControlContainer) { }
+  constructor(public parent: ControlContainer) {}
 }
-
-

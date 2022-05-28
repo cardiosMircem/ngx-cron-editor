@@ -1,32 +1,27 @@
 <span [formGroup]="parent.control">
-  <ng-container *ngIf="!hideHours">
-    <mat-form-field>
-      <mat-label>Hour(s)</mat-label>
-      <mat-select formControlName="hours">
-        <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </ng-container>
 
-  <ng-container *ngIf="!hideMinutes">
-    <span *ngIf="!hideHours">:</span>
-    <mat-form-field>
-      <mat-label>Minute(s)</mat-label>
-      <mat-select formControlName="minutes">
-        <mat-option *ngFor="let minute of minutes" [value]="minute">{{minute}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </ng-container>
+  <mat-form-field *ngIf="!hideHours">
+    <mat-label>{{ 'cronEditor.lbl.hours' | translate }}</mat-label>
+    <mat-select formControlName="hours">
+      <mat-option *ngFor="let hour of hours" [value]="hour">{{hour}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-  <ng-container *ngIf="!hideSeconds">
-    <span *ngIf="!hideMinutes">:</span>
-    <mat-form-field>
-      <mat-label>Second(s)</mat-label>
-      <mat-select formControlName="seconds">
-        <mat-option *ngFor="let second of seconds" [value]="second">{{second}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </ng-container>
+  <span *ngIf="!hideHours">:</span>
+  <mat-form-field *ngIf="!hideMinutes">
+    <mat-label>{{ 'cronEditor.lbl.minutes' | translate }}</mat-label>
+    <mat-select formControlName="minutes">
+      <mat-option *ngFor="let minute of minutes" [value]="minute">{{minute}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span *ngIf="!hideSeconds">:</span>
+  <mat-form-field *ngIf="!hideSeconds">
+    <mat-label>{{ 'cronEditor.lbl.seconds' | translate }}</mat-label>
+    <mat-select formControlName="seconds">
+      <mat-option *ngFor="let second of seconds" [value]="second">{{second}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <ng-container *ngIf="!use24HourTime">
     <span></span>.

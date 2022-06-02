@@ -1,0 +1,36 @@
+{
+  "cronEditor": {
+    "lbl": {
+      "at": "alle",
+      "every": "Ogni",
+      "daily": "Giornaliero",
+      "days": "Giorni",
+      "hourly": "Orario",
+      "hours": "Ore",
+      "minutes": "Minuti",
+      "months": {
+        "january": "january",
+        "february": "february",
+        "march": "march",
+        "april": "april",
+        "may": "may",
+        "june": "june",
+        "july": "july",
+        "august": "august",
+        "september": "september",
+        "october": "october",
+        "november": "november",
+        "december": "december"
+      },
+      "seconds": "Secondi",
+      "weekDays": "Week Day (MON-FRI) at",
+      "monday": "monday",
+      "tuesday": "tuesday",
+      "wednesday": "wednesday",
+      "thursday": "thursday",
+      "friday": "friday",
+      "saturday": "saturday",
+      "sunday": "sunday"
+    }
+  }
+}

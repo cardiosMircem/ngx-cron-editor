@@ -4,7 +4,6 @@ import { CronOptions } from './cron-options';
 import { Tabs } from './enums';
 import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { DateUtils } from 'src/app/shared/files/dateUtils';
 
 /**
  * build the cron from this form.
@@ -61,9 +60,6 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
 
   /** it varies due to the option JSON */
   tabList: string[] = [];
-
-  /** in order to avoid messing around with the scheduler, disable previous values */
-  tomorrowLocal = DateUtils.nowLocal().plus({ day: 1 });
 
   /** get the value from the input value and use it around the component */
   get cron(): string {
@@ -195,7 +191,8 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   private computeHourlyCron(state: any) {
-    this.cron = `0 0 0/${state.hours} * * ${this.weekDayDefaultChar} ${this.yearDefaultChar}`.trim();
+    this.cron =
+      `0 0 0/${state.hours} * * ${this.weekDayDefaultChar} ${this.yearDefaultChar}`.trim();
   }
 
   private computeDailyCron(state: any) {

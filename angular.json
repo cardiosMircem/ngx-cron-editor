@@ -4,10 +4,10 @@
   "newProjectRoot": "libs",
   "projects": {
     "demo": {
-      "root": "apps/demo",
-      "sourceRoot": "src",
+      "root": "",
+      "sourceRoot": "demo/src",
       "projectType": "application",
-      "prefix": "demo",
+      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -18,17 +18,14 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/demo",
-            "index": "apps/demo/src/index.html",
-            "main": "apps/demo/src/main.ts",
-            "polyfills": "apps/demo/src/polyfills.ts",
-            "tsConfig": "apps/demo/src/tsconfig.packaged.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "index": "demo/src/index.html",
+            "main": "demo/src/main.ts",
+            "polyfills": "demo/src/polyfills.ts",
+            "tsConfig": "demo/src/tsconfig.packaged.json",
+            "assets": ["demo/src/favicon.ico", "demo/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/demo/src/styles.scss"
+              "demo/src/styles.scss"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -48,8 +45,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/demo/src/environments/environment.ts",
-                  "with": "apps/demo/src/environments/environment.prod.ts"
+                  "replace": "demo/src/environments/environment.ts",
+                  "with": "demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -80,70 +77,49 @@
             "browserTarget": "demo:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "apps/demo/src/test.ts",
-            "polyfills": "apps/demo/src/polyfills.ts",
-            "tsConfig": "apps/demo/src/tsconfig.spec.json",
-            "karmaConfig": "apps/demo/src/karma.conf.js",
-            "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/demo/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "apps/demo/src/favicon.ico",
-              "apps/demo/src/assets"
-            ]
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/demo/src/tsconfig.app.json",
-              "apps/demo/src/tsconfig.spec.json"
+              "demo/src/tsconfig.app.json",
+              "demo/src/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "ngx-cron-editor": {
-      "root": "libs/ngx-cron-editor",
-      "sourceRoot": "libs/ngx-cron-editor/src",
+    "cron-editor": {
       "projectType": "library",
-      "prefix": "ngx-cron-editor",
+      "root": "libs/cron-editor",
+      "sourceRoot": "libs/cron-editor/src",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "libs/ngx-cron-editor/tsconfig.lib.json",
-            "project": "libs/ngx-cron-editor/ng-package.json"
+            "project": "libs/cron-editor/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "libs/ngx-cron-editor/ng-package.prod.json",
-              "tsConfig": "libs/ngx-cron-editor/tsconfig.lib.prod.json"
+              "tsConfig": "libs/cron-editor/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/cron-editor/tsconfig.lib.json"
             }
           },
-          "styles": ["libs/ngx-cron-editor/src/cron-editor-theme.scss"]
+          "defaultConfiguration": "production"
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": [
-              "libs/ngx-cron-editor/tsconfig.lib.json",
-              "libs/ngx-cron-editor/tsconfig.spec.json"
-            ],
-            "exclude": []
+            "main": "libs/cron-editor/src/test.ts",
+            "tsConfig": "libs/cron-editor/tsconfig.spec.json",
+            "karmaConfig": "libs/cron-editor/karma.conf.js"
           }
         }
       }
     }
   },
-  "defaultProject": "ngx-cron-editor"
+  "defaultProject": "demo"
 }

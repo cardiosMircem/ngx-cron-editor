@@ -1,11 +1,8 @@
-@use '~@angular/material' as mat;
-
 .demo-container {
   margin: 30px;
 }
 
 .demo-card {
-  @include mat.elevation(2);
   position: absolute;
 }
 

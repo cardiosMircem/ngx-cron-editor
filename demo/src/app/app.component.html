@@ -1,9 +1,9 @@
 <section class="mat-typography demo-container">
 
-  <h1>Angular Cron Expression Editor</h1>
+  <h1>Angular Cron Expression Editor {{ 'cronEditor.lbl.minutes' | translate }}</h1>
 
     <mat-card class="demo-card">
-      <mat-card-header class="demo-card-header">
+      <!-- <mat-card-header class="demo-card-header">
 
         <mat-card-title>
           Select your cron flavor
@@ -22,15 +22,19 @@
             </mat-select>
           </mat-form-field>
         </div>
-      </mat-card-header>
+      </mat-card-header> -->
 
       <!-- TODO my cron editor here after the publishing on npm -->
-      <cron-editor  #cronEditorDemo [formControl]="cronForm"  [options]="cronOptions">Cron here...</cron-editor>
+      <app-cron-editor
+        [options]="cronOptions"
+        [cronStartingValue]="cronValue"
+        (cronChange)="seeCron($event)">
+      </app-cron-editor>
 
       <mat-card-footer class="demo-card-footer">
         <div>
           <h3>
-            <b>Expression: {{cronForm.value}}</b>
+            <b>Expression: {{ cronValue }}</b>
           </h3>
         </div>
       </mat-card-footer>

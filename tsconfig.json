@@ -19,7 +19,19 @@
       "dom"
     ],
     "paths": {
-      "ngx-cron-editor": ["dist/libs/ngx-cron-editor"]
+      "cron-editor": [
+        "dist/cron-editor/cron-editor",
+        "dist/cron-editor"
+      ],
+      "m-cron-editor": [
+        "dist/m-cron-editor/m-cron-editor",
+        "dist/m-cron-editor"
+      ],
+      "ngx-cron-editor": [
+        "dist/libs/ngx-cron-editor",
+        "dist/ngx-cron-editor/ngx-cron-editor",
+        "dist/ngx-cron-editor"
+      ]
     }
   },
   "angularCompilerOptions": {

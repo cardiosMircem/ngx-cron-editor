@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import { CronOptions } from 'ngx-cron-editor';
-import { CronGenComponent } from 'ngx-cron-editor';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CronOptions } from 'cron-editor';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +9,9 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public cronExpression = '0 0 1/1 * *';
-  public isCronDisabled = false;
+  public cronValue = '0 0 1/1 * *';
+
   public cronOptions: CronOptions = {
-    formInputClass: 'form-control cron-editor-input',
-    formSelectClass: 'form-control cron-editor-select',
-    formRadioClass: 'cron-editor-radio',
-    formCheckboxClass: 'cron-editor-checkbox',
-
-    defaultTime: '00:00:00',
-
     hideMinutesTab: false,
     hideHourlyTab: false,
     hideDailyTab: false,
@@ -35,18 +28,14 @@ export class AppComponent implements OnInit {
     cronFlavor: 'standard'
   };
 
-  @ViewChild('cronEditorDemo')
-  cronEditorDemo: CronGenComponent;
-
-  cronForm: FormControl;
-
-  constructor() {}
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    this.cronForm = new FormControl(this.cronExpression);
+    this.translate.addLangs(['en']);
+    this.translate.setDefaultLang('en');
   }
 
-  cronFlavorChange() {
-    this.cronEditorDemo.options = this.cronOptions;
+  seeCron(ev: string): void {
+    this.cronValue = ev;
   }
 }

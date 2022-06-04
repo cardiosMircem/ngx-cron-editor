@@ -11,6 +11,7 @@ import { CronEditorModule } from 'cron-editor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -24,6 +25,7 @@ export function createTranslateLoader(http: HttpClient): TranslateHttpLoader {
     MatCardModule,
     MatSelectModule,
     MatSliderModule,
+    ReactiveFormsModule,
     CronEditorModule,
     TranslateModule.forRoot({
       loader: {

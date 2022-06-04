@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CronOptions } from 'cron-editor';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -28,14 +28,21 @@ export class AppComponent implements OnInit {
     cronFlavor: 'standard'
   };
 
+  cronFlavorFC: FormControl;
+
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     this.translate.addLangs(['en', 'it']);
     this.translate.setDefaultLang('it');
+    this.cronFlavorFC = new FormControl(this.cronOptions.cronFlavor);
   }
 
   seeCron(ev: string): void {
     this.cronValue = ev;
+  }
+
+  cronFlavorChange(event: any): void {
+    this.cronOptions.cronFlavor = event.value;
   }
 }

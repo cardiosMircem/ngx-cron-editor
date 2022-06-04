@@ -3,26 +3,25 @@
   <h1>Angular Cron Expression Editor</h1>
 
     <mat-card class="demo-card">
-      <!-- <mat-card-header class="demo-card-header">
+      <mat-card-header class="demo-card-header">
 
         <mat-card-title>
-          Select your cron flavor
+          {{ 'cronEditor.lbl.selectCronFlavor' | translate }}
         </mat-card-title>
         <div>
           <mat-form-field>
-            <mat-label>Flavor</mat-label>
-            <mat-select (change)="cronFlavorChange()" [(ngModel)]="cronOptions.cronFlavor">
+            <mat-label>{{ 'cronEditor.lbl.flavor' | translate }}</mat-label>
+            <mat-select (selectionChange)="cronFlavorChange($event)" [formControl]="cronFlavorFC">
               <mat-option [value]="'quartz'">
                 Quartz
               </mat-option>
-
               <mat-option [value]="'standard'">
                 Standard
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-      </mat-card-header> -->
+      </mat-card-header>
 
       <!-- TODO my cron editor here after the publishing on npm -->
       <app-cron-editor

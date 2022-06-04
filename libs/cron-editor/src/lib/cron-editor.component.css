@@ -8,3 +8,7 @@
 .to-lowercase {
   text-transform: lowercase;
 }
+
+.check-weekday {
+  margin-left: 12px;
+}

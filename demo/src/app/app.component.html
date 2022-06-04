@@ -9,17 +9,27 @@
           {{ 'cronEditor.lbl.selectCronFlavor' | translate }}
         </mat-card-title>
         <div>
+
+          <!-- FLAVOR -->
           <mat-form-field>
             <mat-label>{{ 'cronEditor.lbl.flavor' | translate }}</mat-label>
             <mat-select (selectionChange)="cronFlavorChange($event)" [formControl]="cronFlavorFC">
-              <mat-option [value]="'quartz'">
-                Quartz
-              </mat-option>
-              <mat-option [value]="'standard'">
-                Standard
+              <mat-option *ngFor="let flavor of ['quartz', 'standard']" [value]="flavor">
+                {{ flavor }}
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <!-- LANGUAGE -->
+          <mat-form-field>
+            <mat-label>{{ 'cronEditor.lbl.language' | translate }}</mat-label>
+            <mat-select (selectionChange)="changeLanguage($event)" [formControl]="languageFC">
+              <mat-option *ngFor="let language of availableLanguages" [value]="language">
+                {{ language }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
         </div>
       </mat-card-header>
 

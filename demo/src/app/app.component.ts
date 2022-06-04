@@ -31,8 +31,8 @@ export class AppComponent implements OnInit {
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    this.translate.addLangs(['en']);
-    this.translate.setDefaultLang('en');
+    this.translate.addLangs(['en', 'it']);
+    this.translate.setDefaultLang('it');
   }
 
   seeCron(ev: string): void {

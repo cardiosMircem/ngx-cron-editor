@@ -31,9 +31,7 @@
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "copyhtml": "copy 'src/app/cron-editor/*.html' './components/cron-editor/'",
-    "copycss": "copy 'src/app/cron-editor/*.css' './components/cron-editor/'",
-    "pack": "ng-packagr -p package.json & cd dist & npm pack"
+    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cron-editor-0.0.1.tgz && rm -rf .angular && ng serve -o"
   },
   "dependencies": {
     "@angular/animations": "~13.3.1",
@@ -41,6 +39,7 @@
     "@angular/common": "~13.3.1",
     "@angular/compiler": "~13.3.1",
     "@angular/core": "~13.3.1",
+    "@angular/flex-layout": "^13.0.0-beta.38",
     "@angular/forms": "^13.3.1",
     "@angular/material": "^13.3.1",
     "@angular/platform-browser": "~13.3.1",

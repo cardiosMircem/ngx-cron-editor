@@ -1,13 +1,13 @@
 /* eslint-disable class-methods-use-this */
 import { Component, Input, Output, OnInit, EventEmitter, forwardRef } from '@angular/core';
 import { CronOptions } from './cron-options';
-import { Tabs } from './enums';
+import { MonthWeeks, Tabs, Months } from './enums';
 import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
  * build the cron from this form.
- * <app-cron-editor
+ * <app-cron-editor 
     [options]="cronOptions"
     [cronStartingValue]="cronValue"
     (cronChange)="seeCron($event)">
@@ -43,6 +43,10 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
   public state: any;
 
   private isDirty: boolean;
+
+  readonly MonthWeeks = MonthWeeks;
+
+  readonly Months = Months;
 
   minutesForm: FormGroup;
 

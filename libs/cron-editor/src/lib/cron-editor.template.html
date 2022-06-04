@@ -36,7 +36,7 @@
     <mat-tab *ngIf="!options.hideDailyTab" label="{{ 'cronEditor.lbl.daily' | translate }}">
       <div class="cron-editor-tab-content" [formGroup]="dailyForm">
 
-        <mat-radio-group formControlName="subTab">
+        <mat-radio-group formControlName="subTab" fxLayout="column" fxLayoutAlign="start start">
           <mat-radio-button name="subTab" value="everyDays" checked="checked">
 
             <span class="cron-form-label">{{('cronEditor.lbl.every' | translate) + '&nbsp;' + '&nbsp;' }}</span>
@@ -176,7 +176,7 @@
                 <mat-label>{{ 'cronEditor.lbl.week' | translate }}</mat-label>
                 <mat-select formControlName="monthWeek">
                   <mat-option *ngFor="let monthWeek of selectOptions.monthWeeks" [value]="monthWeek">
-                    {{ monthWeek | monthWeekDisplay }}
+                    {{ ('cronEditor.lbl.' + MonthWeeks[monthWeek]) | translate }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -247,7 +247,7 @@
               <mat-label>{{ 'cronEditor.lbl.month' | translate }}</mat-label>
               <mat-select formControlName="month">
                 <mat-option *ngFor="let month of selectOptions.months" [value]="month">
-                  {{ month | monthDisplay }}
+                  {{ ('cronEditor.lbl.months.' + Months[month]) | translate }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -269,7 +269,7 @@
               <mat-label>{{ 'cronEditor.lbl.week' | translate }}</mat-label>
               <mat-select formControlName="monthWeek" >
                 <mat-option *ngFor="let monthWeek of selectOptions.monthWeeks" [value]="monthWeek">
-                  {{ monthWeek | monthWeekDisplay }}
+                  {{ ('cronEditor.lbl.' + MonthWeeks[monthWeek]) | translate }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -289,7 +289,7 @@
               <mat-label>{{ 'cronEditor.lbl.month' | translate }}</mat-label>
               <mat-select formControlName="month">
                 <mat-option *ngFor="let month of selectOptions.months" [value]="month">
-                  {{ month | monthDisplay }}
+                  {{ ('cronEditor.lbl.months.' + Months[month]) | translate }}
                 </mat-option>
               </mat-select>
             </mat-form-field>

@@ -119,14 +119,14 @@
             <!-- SPECIFIC DAY -->
             <span formGroupName="specificDay">
 
-              {{ ('cronEditor.lbl.onTheDoubleMale' | translate) + '&nbsp;' + '&nbsp;' }}
+              {{ ('cronEditor.lbl.onThe' | translate) + '&nbsp;' + '&nbsp;' }}
 
               <ng-container *ngIf="options.cronFlavor === 'quartz'">
                 <mat-form-field>
                   <mat-label>{{ 'cronEditor.lbl.day' | translate }}</mat-label>
                   <mat-select formControlName="day">
                     <mat-option *ngFor="let monthDaysWithLast of selectOptions.monthDaysWithLasts" [value]="monthDaysWithLast">
-                      {{ monthDaysWithLast | monthDayDisplay | ordinalSuffix }}
+                      {{ monthDaysWithLast | monthDayDisplay }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -137,7 +137,7 @@
                   <mat-label>{{ 'cronEditor.lbl.day' | translate }}</mat-label>
                   <mat-select  formControlName="day">
                     <mat-option *ngFor="let monthDaysWithOutLast of selectOptions.monthDaysWithOutLasts" [value]="monthDaysWithOutLast">
-                      {{ monthDaysWithOutLast | monthDayDisplay }}
+                      {{ (monthDaysWithOutLast | monthDayDisplay) | ordinalSuffix : currentLanguage }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -221,7 +221,7 @@
         <mat-radio-group formControlName="subTab" fxLayout="column" fxLayoutAlign="stretch start">
           <mat-radio-button name="yearly-radio" value="specificMonthDay">
 
-            {{ ('cronEditor.lbl.onTheDoubleMale' | translate) + '&nbsp;' + '&nbsp;' }}
+            {{ ('cronEditor.lbl.onThe' | translate) + '&nbsp;' + '&nbsp;' }}
 
             <mat-form-field formGroupName="specificMonthDay" *ngIf="options.cronFlavor === 'quartz'">
               <mat-label>{{ 'cronEditor.lbl.day' | translate }}</mat-label>

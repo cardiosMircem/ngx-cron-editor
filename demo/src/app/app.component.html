@@ -37,7 +37,8 @@
       <app-cron-editor
         [options]="cronOptions"
         [cronStartingValue]="cronValue"
-        (cronChange)="seeCron($event)">
+        (cronChange)="seeCron($event)"
+        [initialLanguage]="languageFC.value">
       </app-cron-editor>
 
       <mat-card-footer class="demo-card-footer">

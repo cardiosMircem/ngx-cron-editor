@@ -25,7 +25,8 @@ export class AppComponent implements OnInit {
     use24HourTime: true,
     hideSeconds: false,
 
-    cronFlavor: 'standard'
+    cronFlavor: 'standard',
+    initialLanguage: 'en'
   };
 
   cronFlavorFC: FormControl;

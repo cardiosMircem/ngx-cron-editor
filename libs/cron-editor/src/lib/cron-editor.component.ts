@@ -1,9 +1,18 @@
 /* eslint-disable class-methods-use-this */
-import { Component, Input, Output, OnInit, EventEmitter, forwardRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  OnInit,
+  EventEmitter,
+  forwardRef,
+  OnDestroy
+} from '@angular/core';
 import { CronOptions } from './cron-options';
 import { MonthWeeks, Tabs, Months } from './enums';
 import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject, takeUntil } from 'rxjs';
 
 /**
  * build the cron from this form.
@@ -27,10 +36,12 @@ export const CRON_VALUE_ACCESSOR: any = {
   styleUrls: ['./cron-editor.component.css'],
   providers: [CRON_VALUE_ACCESSOR]
 })
-export class CronEditorComponent implements OnInit, ControlValueAccessor {
+export class CronEditorComponent implements OnInit, ControlValueAccessor, OnDestroy {
   @Input() public options: CronOptions;
 
   @Input() cronStartingValue: string;
+
+  @Input() initialLanguage: string;
 
   @Output() cronChange = new EventEmitter<string>();
 
@@ -62,8 +73,12 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
 
   advancedForm: FormGroup;
 
+  currentLanguage = 'en';
+
   /** it varies due to the option JSON */
   tabList: string[] = [];
+
+  unsub$ = new Subject<void>();
 
   /** get the value from the input value and use it around the component */
   get cron(): string {
@@ -99,6 +114,8 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
   constructor(private fb: FormBuilder, private translateService: TranslateService) {}
 
   public ngOnInit(): void {
+    this.currentLanguage = this.initialLanguage ? this.initialLanguage : this.currentLanguage;
+
     // start with initial values of the whole form
     this.state = this.getInitialState();
 
@@ -158,6 +175,49 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
       this.advancedForm.controls.expression.valueChanges.subscribe((next) =>
         this.computeAdvancedExpression(next)
       );
+    }
+
+    // translate observable that emits on language changed
+    this.translateService.onLangChange
+      .pipe(takeUntil(this.unsub$))
+      .subscribe((translate: { lang: string; translations: any }) => {
+        this.currentLanguage = translate.lang;
+      });
+  }
+
+  /**
+   * Pipe does not work so th add done here
+   *
+   * @param language
+   */
+  private checkOrdinalSuffix(language: string) {
+    console.log(language);
+    if (language === 'en') {
+      const newMonthDays = this.selectOptions.monthDaysWithOutLasts.map((value: string) => {
+        if (value.length > 1) {
+          const secondToLastDigit = value.charAt(value.length - 2);
+          if (secondToLastDigit === '1') {
+            return `${value}th`;
+          }
+          if (value.length > 2) {
+            return value;
+          }
+        }
+
+        const lastDigit = value.charAt(value.length - 1);
+        switch (lastDigit) {
+          case '1':
+            return `${value}st`;
+          case '2':
+            return `${value}nd`;
+          case '3':
+            return `${value}rd`;
+          default:
+            return `${value}th`;
+        }
+      });
+      console.log(newMonthDays);
+      this.selectOptions.monthDaysWithOutLasts = JSON.parse(JSON.stringify(newMonthDays));
     }
   }
 
@@ -702,5 +762,9 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor {
       default:
         throw new Error('Invalid tab selected');
     }
+  }
+
+  ngOnDestroy(): void {
+    this.unsub$.next(null);
   }
 }

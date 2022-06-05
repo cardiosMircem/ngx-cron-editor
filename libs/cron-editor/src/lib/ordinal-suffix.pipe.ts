@@ -11,8 +11,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class OrdinalSuffixPipe implements PipeTransform {
   constructor(private translateService: TranslateService) {}
 
-  transform(value: string): string {
-    if (this.translateService.getBrowserCultureLang().toLocaleLowerCase() === 'en') {
+  transform(value: string, language: string): string {
+    console.log(language);
+    if (language === 'en') {
       if (value.length > 1) {
         const secondToLastDigit = value.charAt(value.length - 2);
         if (secondToLastDigit === '1') {

@@ -12,7 +12,6 @@ export class OrdinalSuffixPipe implements PipeTransform {
   constructor(private translateService: TranslateService) {}
 
   transform(value: string, language: string): string {
-    console.log(language);
     if (language === 'en') {
       if (value.length > 1) {
         const secondToLastDigit = value.charAt(value.length - 2);

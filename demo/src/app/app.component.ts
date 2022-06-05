@@ -25,8 +25,7 @@ export class AppComponent implements OnInit {
     use24HourTime: true,
     hideSeconds: false,
 
-    cronFlavor: 'standard',
-    initialLanguage: 'en'
+    cronFlavor: 'standard'
   };
 
   cronFlavorFC: FormControl;
@@ -39,9 +38,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.translate.addLangs(this.availableLanguages);
-    this.translate.setDefaultLang('en');
+    this.translate.use('en');
     this.cronFlavorFC = new FormControl(this.cronOptions.cronFlavor);
-    this.languageFC = new FormControl(this.translate.getDefaultLang());
+    this.languageFC = new FormControl(this.translate.currentLang);
   }
 
   seeCron(ev: string): void {

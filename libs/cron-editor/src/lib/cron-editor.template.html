@@ -126,7 +126,7 @@
                   <mat-label>{{ 'cronEditor.lbl.day' | translate }}</mat-label>
                   <mat-select formControlName="day">
                     <mat-option *ngFor="let monthDaysWithLast of selectOptions.monthDaysWithLasts" [value]="monthDaysWithLast">
-                      {{ monthDaysWithLast | monthDayDisplay }}
+                      {{ (monthDaysWithLast | monthDayDisplay) | ordinalSuffix : currentLanguage }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -227,7 +227,7 @@
               <mat-label>{{ 'cronEditor.lbl.day' | translate }}</mat-label>
               <mat-select formControlName="day">
                 <mat-option *ngFor="let monthDaysWithLast of selectOptions.monthDaysWithLasts" [value]="monthDaysWithLast">
-                  {{ monthDaysWithLast | monthDayDisplay }}
+                  {{ (monthDaysWithLast | monthDayDisplay) | ordinalSuffix : currentLanguage }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -236,7 +236,7 @@
               <mat-label>{{ 'cronEditor.lbl.day' | translate }}</mat-label>
               <mat-select formControlName="day" >
                 <mat-option *ngFor="let monthDaysWithOutLast of selectOptions.monthDaysWithOutLasts" [value]="monthDaysWithOutLast">
-                  {{ monthDaysWithOutLast | monthDayDisplay }}
+                  {{ (monthDaysWithOutLast | monthDayDisplay) | ordinalSuffix : currentLanguage }}
                 </mat-option>
               </mat-select>
             </mat-form-field>

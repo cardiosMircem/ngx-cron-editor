@@ -41,8 +41,6 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor, OnDest
 
   @Input() cronStartingValue: string;
 
-  @Input() initialLanguage: string;
-
   @Output() cronChange = new EventEmitter<string>();
 
   /** what initial tab to show the cron on */
@@ -114,7 +112,7 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor, OnDest
   constructor(private fb: FormBuilder, private translateService: TranslateService) {}
 
   public ngOnInit(): void {
-    this.currentLanguage = this.initialLanguage ? this.initialLanguage : this.currentLanguage;
+    this.currentLanguage = this.translateService.currentLang;
 
     // start with initial values of the whole form
     this.state = this.getInitialState();
@@ -183,42 +181,6 @@ export class CronEditorComponent implements OnInit, ControlValueAccessor, OnDest
       .subscribe((translate: { lang: string; translations: any }) => {
         this.currentLanguage = translate.lang;
       });
-  }
-
-  /**
-   * Pipe does not work so th add done here
-   *
-   * @param language
-   */
-  private checkOrdinalSuffix(language: string) {
-    console.log(language);
-    if (language === 'en') {
-      const newMonthDays = this.selectOptions.monthDaysWithOutLasts.map((value: string) => {
-        if (value.length > 1) {
-          const secondToLastDigit = value.charAt(value.length - 2);
-          if (secondToLastDigit === '1') {
-            return `${value}th`;
-          }
-          if (value.length > 2) {
-            return value;
-          }
-        }
-
-        const lastDigit = value.charAt(value.length - 1);
-        switch (lastDigit) {
-          case '1':
-            return `${value}st`;
-          case '2':
-            return `${value}nd`;
-          case '3':
-            return `${value}rd`;
-          default:
-            return `${value}th`;
-        }
-      });
-      console.log(newMonthDays);
-      this.selectOptions.monthDaysWithOutLasts = JSON.parse(JSON.stringify(newMonthDays));
-    }
   }
 
   /**

@@ -13,5 +13,4 @@ export interface CronOptions {
   hideSeconds: boolean;
 
   cronFlavor: 'standard' | 'quartz';
-  initialLanguage: string;
 }

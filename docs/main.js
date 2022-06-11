@@ -73,9 +73,9 @@ class AppComponent {
     }
     ngOnInit() {
         this.translate.addLangs(this.availableLanguages);
-        this.translate.setDefaultLang('en');
+        this.translate.use('en');
         this.cronFlavorFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControl(this.cronOptions.cronFlavor);
-        this.languageFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControl(this.translate.getDefaultLang());
+        this.languageFC = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__.FormControl(this.translate.currentLang);
     }
     seeCron(ev) {
         this.cronValue = ev;

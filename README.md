@@ -22,7 +22,7 @@ A demo can be found 👉 👉 👉 [here](https://cardiosmircem.github.io/ngx-cr
 2. import the module in your own module
 
    ```ts
-   import { CronEditorModule } from 'cron-editor';
+   import { CronEditorModule } from '@cardiosmircem/ngx-cron-editor';
 
    @NgModule({
        imports: [..., CronEditorModule],
@@ -46,7 +46,7 @@ A demo can be found 👉 👉 👉 [here](https://cardiosmircem.github.io/ngx-cr
 4. While in your ts component you have
 
 ```ts
-import { CronOptions } from 'cron-editor';
+import { CronOptions } from '@cardiosmircem/ngx-cron-editor';
 
 @Component({
     ...

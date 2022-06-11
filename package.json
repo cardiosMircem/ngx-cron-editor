@@ -6,7 +6,7 @@
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.0.tgz && rm -rf .angular && ng serve -o"
+    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.1.tgz && rm -rf .angular && ng serve -o"
   },
   "dependencies": {
     "@angular/animations": "~13.3.1",
@@ -20,7 +20,7 @@
     "@angular/platform-browser": "~13.3.1",
     "@angular/platform-browser-dynamic": "~13.3.1",
     "@angular/router": "~13.3.1",
-    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.0.tgz",
+    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.1.tgz",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "rxjs": "~7.4.0",

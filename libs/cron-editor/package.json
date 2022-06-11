@@ -1,18 +1,41 @@
 {
-  "name": "cron-editor",
-  "version": "0.0.1",
+  "name": "@cardiosmircem/ngx-cron-editor",
+  "description": "A cron expression generator with translations",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cardiosMircem/ngx-cron-editor"
+  },
+  "author": {
+    "name": "Mirco Seccardi"
+  },
+  "keywords": [
+    "angular",
+    "cron",
+    "cron-expression",
+    "ngx-cron-editor",
+    "angular-cli",
+    "quartz",
+    "translation",
+    "localization",
+    "i18n"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cardiosMircem/ngx-cron-editor/issues"
+  },
+  "homepage": "https://github.com/cardiosMircem/ngx-cron-editor",
   "peerDependencies": {
-    "@angular/animations": "~13.3.1",
-    "@angular/cdk": "~13.3.1",
-    "@angular/compiler": "~13.3.1",
-    "@angular/forms": "^13.3.1",
-    "@angular/material": "^13.3.1",
-    "@angular/platform-browser": "~13.3.1",
-    "@angular/platform-browser-dynamic": "~13.3.1",
-    "@angular/router": "~13.3.1",
-    "@ngx-translate/core": "^14.0.0",
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/core": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/animations": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/common": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/forms": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/platform-browser": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/platform-browser-dynamic": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/router": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/material": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/cdk": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0",
+    "@angular/compiler": "^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

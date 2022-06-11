@@ -1,37 +1,12 @@
 {
   "name": "ngx-cron-editor",
-  "description": "A cron expression generator for Angular 6+",
-  "author": "Håvard D. Johansen",
-  "contributors": [
-    "Claudiu Constantin",
-    "Eduardo Sarmiento",
-    "Aleksey Yermolenko",
-    "Ruslan Lekhman <lekhman112@gmail.com> (https://github.com/lekhmanrus)"
-  ],
-  "version": "0.7.2",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/haavardj/ngx-cron-editor"
-  },
-  "bugs": {
-    "url": "https://github.com/haavardj/ngx-cron-editor/issues"
-  },
-  "homepage": "https://github.com/haavardj/ngx-cron-editor",
-  "keywords": [
-    "angular",
-    "cron",
-    "cron-expression",
-    "angular-cli",
-    "quartz"
-  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cron-editor-0.0.1.tgz && rm -rf .angular && ng serve -o"
+    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.0.tgz && rm -rf .angular && ng serve -o"
   },
   "dependencies": {
     "@angular/animations": "~13.3.1",
@@ -45,9 +20,9 @@
     "@angular/platform-browser": "~13.3.1",
     "@angular/platform-browser-dynamic": "~13.3.1",
     "@angular/router": "~13.3.1",
+    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.0.tgz",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "cron-editor": "file:dist/cron-editor/cron-editor-0.0.1.tgz",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

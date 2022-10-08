@@ -1,7 +1,7 @@
 {
   "name": "@cardiosmircem/ngx-cron-editor",
   "description": "A cron expression generator with translations",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/cardiosMircem/ngx-cron-editor"

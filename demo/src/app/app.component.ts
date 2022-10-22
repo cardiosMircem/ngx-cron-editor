@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { CronOptions } from '@cardiosmircem/ngx-cron-editor';
 
@@ -26,9 +26,9 @@ export class AppComponent implements OnInit {
     cronFlavor: 'standard'
   };
 
-  cronFlavorFC: FormControl;
+  cronFlavorFC: UntypedFormControl;
 
-  languageFC: FormControl;
+  languageFC: UntypedFormControl;
 
   availableLanguages = ['en', 'it'];
 
@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.translate.addLangs(this.availableLanguages);
     this.translate.use('en');
-    this.cronFlavorFC = new FormControl(this.cronOptions.cronFlavor);
-    this.languageFC = new FormControl(this.translate.currentLang);
+    this.cronFlavorFC = new UntypedFormControl(this.cronOptions.cronFlavor);
+    this.languageFC = new UntypedFormControl(this.translate.currentLang);
   }
 
   seeCron(ev: string): void {

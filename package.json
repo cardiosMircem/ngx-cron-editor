@@ -6,7 +6,7 @@
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.4.tgz && rm -rf .angular && ng serve -o",
+    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.5.tgz && rm -rf .angular && ng serve -o",
     "pub": "cd libs/cron-editor && npm publish --access public"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "@angular/platform-browser": "^14.2.9",
     "@angular/platform-browser-dynamic": "^14.2.9",
     "@angular/router": "^14.2.9",
-    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.4.tgz",
+    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.5.tgz",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "rxjs": "~7.4.0",

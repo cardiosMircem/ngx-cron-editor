@@ -12,3 +12,10 @@
 .check-weekday {
   margin-left: 12px;
 }
+
+.column-stretch-start {
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  align-items: stretch;
+}

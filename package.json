@@ -1,13 +1,13 @@
 {
   "name": "ngx-cron-editor",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pack-install": "ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.12.tgz && rm -rf .angular && ng serve -o",
+    "pack-install": "rm -rf dist && ng build cron-editor && cd dist/cron-editor && npm pack && cd ../../ && npm install dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.13.tgz && rm -rf .angular && ng serve -o",
     "pub": "cd libs/cron-editor && npm publish --access public",
     "update-docs": "rm -rf docs/* && ng build && mv dist/apps/demo/* docs/"
   },
@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^18.0.5",
     "@angular/platform-browser-dynamic": "^18.0.5",
     "@angular/router": "^18.0.5",
-    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.12.tgz",
+    "@cardiosmircem/ngx-cron-editor": "file:dist/cron-editor/cardiosmircem-ngx-cron-editor-1.0.13.tgz",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "rxjs": "~7.4.0",
